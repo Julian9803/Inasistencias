@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12/11/2015 01:31:52 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Clases.Fallaprimaria" table="fallaprimaria" catalog="Inasistencia" optimistic-lock="version">
+        <id name="idFallaPrimaria" type="java.lang.Integer">
+            <column name="idFallaPrimaria" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="estudiante" class="Clases.Estudiante" fetch="select">
+            <column name="Estudiante" not-null="true" />
+        </many-to-one>
+        <property name="grupo" type="string">
+            <column name="Grupo" length="45" not-null="true" />
+        </property>
+        <property name="codigo" type="int">
+            <column name="Codigo" not-null="true" />
+        </property>
+        <property name="bimestre" type="short">
+            <column name="Bimestre" not-null="true" />
+        </property>
+        <property name="fecha" type="date">
+            <column name="Fecha" length="10" not-null="true" />
+        </property>
+        <property name="inasistencia" type="java.lang.Short">
+            <column name="Inasistencia" />
+        </property>
+    </class>
+</hibernate-mapping>
