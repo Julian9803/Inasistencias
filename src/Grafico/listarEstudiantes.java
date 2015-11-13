@@ -120,7 +120,7 @@ public DefaultTableModel model;
             String columnas[] ={"idEstudiante","Grado","Nombres","Apellidos","Numero Documento"};
             model = new DefaultTableModel(filas, columnas);
             tbEstudiantes.setModel(model);
-            ArrayList<Estudiante> lista = (ArrayList<Estudiante>) HibernateUtil.Query("FROM Estudiante WHERE Estado = 'Activo'");
+            ArrayList<Estudiante> lista = (ArrayList<Estudiante>) HibernateUtil.Query("FROM Estudiante WHERE Estado = 'Activo' AND Tipo = 'Secundaria'");
             
             for(Estudiante item: lista){
                 model.addRow(item.arrayToVector());

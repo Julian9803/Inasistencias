@@ -175,7 +175,7 @@ public class JfES extends javax.swing.JFrame {
             grado = (Grado) HibernateUtil.QueryUnicode("FROM Grado WHERE grado = '"+cmbGrado.getSelectedItem().toString()+"'");
             
             try{
-                Estudiante es = new Estudiante(grado, Nombres, Apellidos, numeroDocumento, "Activo");
+                Estudiante es = new Estudiante(grado, Nombres, Apellidos, numeroDocumento, "Secundaria", "Activo");
                 HibernateUtil.Save(es);
                 JOptionPane.showMessageDialog(rootPane, "Se registro correctamente", "Enhorabuena", JOptionPane.INFORMATION_MESSAGE);
             }catch(Exception ex){
@@ -191,7 +191,7 @@ public class JfES extends javax.swing.JFrame {
     
     private void cargarCombo(){
         ArrayList<Grado> listaG = new ArrayList<Grado>();
-        listaG = (ArrayList<Grado>) HibernateUtil.Query("FROM Grado WHERE Estado='Activo'");
+        listaG = (ArrayList<Grado>) HibernateUtil.Query("FROM Grado WHERE Estado='Activo' AND TipoGrado = 'Secundaria'");
         for(Grado item: listaG){
             cmbGrado.addItem(item.getGrado());
         }
